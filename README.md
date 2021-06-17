@@ -12,16 +12,9 @@ This project uses MVC to create a blog where users can sign up/log in and create
 
 - [Description](#description)
 - [Table of Contents](#table-of-contents)
-- [Installation](#installation)
 - [Usage](#usage)
 - [License](#license)
 - [Questions](#questions)
-
-## Installation
-
-​
-undefined
-​
 
 ## Usage
 
