@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Post, Comment, User } = require("../models");
+const { Post, User, Comment } = require("../models");
 
 // READ All Posts
 router.get("/", async (req, res) => {
@@ -14,8 +14,8 @@ router.get("/", async (req, res) => {
     });
 
     const posts = dbPost.map((post) => post.get({ plain: true }));
-
-    res.render("homepage", { posts });
+    console.log(req.session);
+    res.render("homepage", { posts, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -33,7 +33,6 @@ router.get("/post/:id", async (req, res) => {
         },
         {
           model: Comment,
-          attributes: ["comment", "date_created", "user_id"],
           include: [User],
         },
       ],
@@ -43,10 +42,10 @@ router.get("/post/:id", async (req, res) => {
       res.status(404).json({ message: "No post found with this id!" });
       return;
     }
-
     const post = postData.get({ plain: true });
+    // console.log(post);
 
-    res.render("postPage", { post });
+    res.render("postPage", { post, loggedIn: req.session.loggedIn });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -68,7 +67,7 @@ router.get("/login", async (req, res) => {
 router.get("/signup", async (req, res) => {
   try {
     if (req.session.loggedIn) {
-      res.render("homepage");
+      res.redirect("/");
     } else {
       res.render("signup");
     }

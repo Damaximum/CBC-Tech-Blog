@@ -10,16 +10,6 @@ router.get("/", withAuth, async (req, res) => {
       where: {
         user_id: req.session.user_id,
       },
-      include: [
-        {
-          model: Comment,
-          attributes: ["id", "comment", "post_id", "user_id", "date_created"],
-          include: {
-            model: User,
-            attributes: ["username"],
-          },
-        },
-      ],
     });
 
     const posts = dbPost.map((post) => post.get({ plain: true }));
@@ -40,14 +30,14 @@ router.get("/edit/:id", withAuth, async (req, res) => {
           model: User,
           attributes: ["name"],
         },
-        {
-          model: Comment,
-          attributes: ["id", "comment", "post_id", "user_id", "date_created"],
-          include: {
-            model: User,
-            attributes: ["name"],
-          },
-        },
+        // {
+        //   model: Comment,
+        //   attributes: ["id", "comment", "post_id", "user_id", "date_created"],
+        //   include: {
+        //     model: User,
+        //     attributes: ["name"],
+        //   },
+        // },
       ],
     });
 
