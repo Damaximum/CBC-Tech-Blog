@@ -47,6 +47,7 @@ router.get("/post/:id", async (req, res) => {
 
     res.render("postPage", { post, loggedIn: req.session.loggedIn });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -60,6 +61,7 @@ router.get("/login", async (req, res) => {
       res.render("login");
     }
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -72,6 +74,7 @@ router.get("/signup", async (req, res) => {
       res.render("signup");
     }
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });

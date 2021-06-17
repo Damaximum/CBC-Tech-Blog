@@ -50,6 +50,7 @@ router.get("/edit/:id", withAuth, async (req, res) => {
 
     res.render("edit-post", { post, loggedIn: true });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
