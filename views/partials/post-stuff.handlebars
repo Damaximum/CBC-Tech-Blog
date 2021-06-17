@@ -1,0 +1,17 @@
+<div class="card mb-5">
+    <div class="card-header bg-secondary">
+      <div class="container">
+        <div class="row align-items-end">
+          <div class="col">
+            <h4 class="card-title text-start fs-3 align-self-center"><a class="text-info text-decoration-none" href="/post/{{id}}">{{title}}</a></h4>
+          </div>
+          <div class="col">
+        <p class="card-subtitle mb-2 text-light text-end fs-6 align-self-center">Posted by {{user.name}} on {{format_date date_created}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+        <p class="card-text">{{post_content}}</p>
+    </div>
+</div>

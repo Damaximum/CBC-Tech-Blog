@@ -1,0 +1,22 @@
+[
+    {
+        "comment": "It's awesome!",
+        "user_id": "1",
+        "post_id": "1"
+    },
+    {
+        "comment": "Thanks for clarifying this for me!",
+        "user_id": "2",
+        "post_id": "2"
+    },
+    {
+        "comment": "Had to learn this the hard way...",
+        "user_id": "3",
+        "post_id": "1"
+    },
+    {
+        "comment": "I know right?!",
+        "user_id": "1",
+        "post_id": "3"
+    }
+]
