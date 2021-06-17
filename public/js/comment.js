@@ -10,8 +10,10 @@ async function commentFormHandler(event) {
     window.location.toString().split("/").length - 1
   ];
 
+  console.log(comment, post_id);
+
   if (comment) {
-    const response = await fetch("/api/comments", {
+    const response = await fetch(`/api/comments/`, {
       method: "POST",
       body: JSON.stringify({
         post_id,
@@ -21,6 +23,8 @@ async function commentFormHandler(event) {
         "Content-Type": "application/json",
       },
     });
+
+    console.log(response);
 
     if (response.ok) {
       document.location.reload();
